@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>PrepMate - Smart Quiz</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- HEADER -->
+    <header class="header">
+
+        <div class="logo">
+            <span>🎯</span>
+            PrepMate
+        </div>
+
+        <button id="themeBtn" class="theme-btn">🌙</button>
+
+    </header>
+
+
+    <!-- MAIN CONTAINER -->
+    <main class="container">
+
+
+        <!-- ================= HOME SCREEN ================= -->
+
+        <section id="homeScreen" class="screen">
+
+            <div class="hero">
+
+                <div class="hero-text">
+
+                    <p class="small-title">WELCOME TO PREPMATE</p>
+
+                    <h1>
+                        Learn.
+                        <span>Practice.</span>
+                        Improve.
+                    </h1>
+
+                    <p class="description">
+                        Test your knowledge, improve your skills,
+                        and track your progress with interactive quizzes.
+                    </p>
+
+                </div>
+
+                <div class="hero-icon">
+                    🎓
+                </div>
+
+            </div>
+
+
+            <!-- STAT CARDS -->
+
+            <div class="stats">
+
+                <div class="stat-card">
+                    <div class="stat-icon">🏆</div>
+                    <div>
+                        <h3 id="bestScore">0</h3>
+                        <p>Best Score</p>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon">📝</div>
+                    <div>
+                        <h3>15</h3>
+                        <p>Questions</p>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon">🔥</div>
+                    <div>
+                        <h3 id="streak">0</h3>
+                        <p>Current Streak</p>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <!-- QUIZ SETTINGS -->
+
+            <div class="quiz-box">
+
+                <h2>Start Your Quiz</h2>
+
+                <p class="box-subtitle">
+                    Choose your preferences
+                </p>
+
+
+                <!-- SUBJECT -->
+
+                <div class="setting">
+
+                    <label>📚 Select Subject</label>
+
+                    <div class="options">
+
+                        <button class="select-btn active"
+                                data-subject="javascript">
+                            JavaScript
+                        </button>
+
+                        <button class="select-btn"
+                                data-subject="html">
+                            HTML
+                        </button>
+
+                        <button class="select-btn"
+                                data-subject="css">
+                            CSS
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- DIFFICULTY -->
+
+                <div class="setting">
+
+                    <label>⚡ Difficulty</label>
+
+                    <div class="options">
+
+                        <button class="difficulty-btn active"
+                                data-level="easy">
+                            Easy
+                        </button>
+
+                        <button class="difficulty-btn"
+                                data-level="medium">
+                            Medium
+                        </button>
+
+                        <button class="difficulty-btn"
+                                data-level="hard">
+                            Hard
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <button id="startBtn" class="start-btn">
+                    Start Quiz →
+                </button>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ================= QUIZ SCREEN ================= -->
+
+        <section id="quizScreen" class="screen hidden">
+
+
+            <!-- QUIZ TOP -->
+
+            <div class="quiz-top">
+
+                <div>
+
+                    <p class="question-number">
+                        Question <span id="currentQuestion">1</span>
+                        of <span id="totalQuestions">15</span>
+                    </p>
+
+                </div>
+
+                <div class="timer">
+                    ⏱️ <span id="timer">30</span>s
+                </div>
+
+            </div>
+
+
+            <!-- PROGRESS -->
+
+            <div class="progress-container">
+
+                <div id="progressBar" class="progress-bar"></div>
+
+            </div>
+
+
+            <!-- QUESTION CARD -->
+
+            <div class="question-card">
+
+                <span id="questionTag" class="question-tag">
+                    JavaScript
+                </span>
+
+                <h2 id="question">
+                    Question will appear here
+                </h2>
+
+
+                <!-- OPTIONS -->
+
+                <div id="optionsContainer" class="answer-options">
+
+                </div>
+
+
+                <!-- NEXT BUTTON -->
+
+                <button id="nextBtn" class="next-btn" disabled>
+                    Next Question →
+                </button>
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- ================= RESULT SCREEN ================= -->
+
+        <section id="resultScreen" class="screen hidden">
+
+            <div class="result-card">
+
+                <div class="result-icon">
+                    🏆
+                </div>
+
+                <p class="small-title">
+                    QUIZ COMPLETED
+                </p>
+
+                <h1>Great Job! 🎉</h1>
+
+                <p class="result-message" id="resultMessage">
+                    Keep learning and improving!
+                </p>
+
+
+                <!-- SCORE -->
+
+                <div class="score-circle">
+
+                    <div>
+
+                        <strong id="finalScore">
+                            0
+                        </strong>
+
+                        <span>
+                            / 15
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- RESULT STATS -->
+
+                <div class="result-stats">
+
+                    <div>
+                        <span class="correct-color">✓</span>
+                        <strong id="correctAnswers">0</strong>
+                        <p>Correct</p>
+                    </div>
+
+                    <div>
+                        <span class="wrong-color">✕</span>
+                        <strong id="wrongAnswers">0</strong>
+                        <p>Wrong</p>
+                    </div>
+
+                    <div>
+                        <span>🎯</span>
+                        <strong id="percentage">0%</strong>
+                        <p>Accuracy</p>
+                    </div>
+
+                </div>
+
+
+                <div class="result-buttons">
+
+                    <button id="reviewBtn" class="review-btn">
+                        📋 Review Answers
+                    </button>
+
+                    <button id="restartBtn" class="restart-btn">
+                        🔄 Try Again
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ================= REVIEW SCREEN ================= -->
+
+        <section id="reviewScreen" class="screen hidden">
+
+            <div class="review-header">
+
+                <div>
+                    <p class="small-title">QUIZ REVIEW</p>
+                    <h1>Your Answers</h1>
+                </div>
+
+                <button id="backResultBtn" class="back-btn">
+                    ← Back
+                </button>
+
+            </div>
+
+
+            <div id="reviewContainer">
+
+            </div>
+
+
+            <button id="reviewRestartBtn" class="start-btn">
+                🔄 Take Quiz Again
+            </button>
+
+        </section>
+
+    </main>
+
+
+    <footer>
+
+        <p>
+            Made with ❤️ using HTML, CSS & JavaScript
+        </p>
+
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
